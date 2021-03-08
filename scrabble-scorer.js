@@ -41,7 +41,7 @@ function initialPrompt() {
    return word;
 }
 
-let newPointStructure = function(word) {}
+let newPointStructure = function(transform) {}
 
 let simpleScore = function(word) {
   word = word.toUpperCase();
@@ -101,7 +101,7 @@ const scoringAlgorithms = [
   { 
     name: 'Scrabble',
     description: 'The traditional scoring algorithm.',
-    scorerFunction: scrabbleScore
+    scorerFunction: newPointStructure
   }
 ];
 
@@ -127,13 +127,13 @@ function scorerPrompt() {
   return scoringAlgorithm;
 }
 
-function transform(obj) {
+function transform(oldPointStructure) {
   let transformObj = {};
   
-    for (key in obj) {
+    for (key in oldPointStructure) {
  
-		 for (let i = 0; i < obj[key].length; i++) {
-        let letters = obj[key][i];
+		 for (let i = 0; i < oldPointStructure[key].length; i++) {
+        let letters = oldPointStructure[key][i];
         letters = letters.toLowerCase();
         transformObj[letters] = Number(key);
         } 
