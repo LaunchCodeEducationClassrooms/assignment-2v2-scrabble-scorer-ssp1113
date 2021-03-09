@@ -79,6 +79,8 @@ let scrabbleScore = function(word) {
     letter = word[i];
 		score += newPointStructure[letter];
   }
+  score = Number(score);
+  return score;
 }
 
 const scoringAlgorithms = [ 
